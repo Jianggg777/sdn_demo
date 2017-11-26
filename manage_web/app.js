@@ -1,46 +1,29 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
-var index = require('./routes/index');
-var users = require('./routes/users');
-
+// express
+var express = require( 'express' );
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+// ejs
+app.set( 'views', __dirname + '/views' );
+app.set( 'view engine', 'ejs' );
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// for image,css....
+app.use(express.static('public'));
 
-app.use('/', index);
-app.use('/users', users);
+// Routes with session
+var routes = require( './routes' );
+app.get( '/', routes.index ); 
+app.post('/login',routes.login);
+app.post( '/api/addVm', routes.setNetwork );   // ㄅ確定要ㄅ要
+app.post( '/api/rmVm', routes.setNetwork );  // ㄅ確定要ㄅ要
+app.post( '/api/addService', routes.setNetwork ); 
+app.post( '/api/rmService', routes.setNetwork ); 
+app.post( '/api/cgMethod', routes.setNetwork ); 
+app.post( '/api/addFlow', routes.setVm ); 
+app.post( '/api/rmFlow', routes.setVm ); 
+app.post( '/api/cgService', routes.setVm ); 
+app.get( '/api/getStatistics', routes.getStatistics ); 
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+app.listen( 4000, function (){ 
+ console.log( 'Express server listening for manage_web request' );
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-module.exports = app;

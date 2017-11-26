@@ -1,11 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
+
+<head>
+    <title></title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <script type="text/javascript" src="/scripts/dialog.js"></script>
+</head>
+
+<body>
+    <p>第6組 叢集式系統的負載平衡演算法 - 以SDN為概念實作</p>
+    <div>TOPOLOGY</div>
+    <div>NETWORK SETTING
+        <button id="opener_addvm">add VM</button>
+        <form id="dialog_addvm" action="/api/addVm" method="post">
+            <label>IP</label>
+            <input type="text" name="ip">
+            <br>
+            <label>switch's DPID</label>
+            <input type="text" name="dpid">
+            <input type="submit" style="display:none">
+        </form>
+        <button id="opener_rmvm">rm VM</button>
+        <form id="dialog_rmvm" action="/api/rmVm" method="post">
+            <label>IP</label>
+            <input type="text" name="ip">
+            <input type="submit" style="display:none">
+        </form>
+        <button id="opener_addService">add Service</button>
+        <form id="dialog_addService" action="/api/addService" method="post">
+            <label>vip</label>
+            <input type="text" name="vip">
+            <br>
+            <label>port</label>
+            <input type="text" name="port">
+            <input type="submit" style="display:none">
+        </form>
+        <button id="opener_rmService">rm Service</button>
+        <form id="dialog_rmService" action="/api/rmService" method="post">
+            <label>vip</label>
+            <input type="text" name="vip">
+            <input type="submit" style="display:none">
+        </form>
+        <button id="opener_cgMethod">change method</button>
+        <form id="dialog_cgMethod" action="/api/cgMethod" method="post">
+            <label>method</label>
+            <select name='lbmethod'>
+                <option value="0">Random</option>
+            
+                <option value="1">Round Robin</option>
+            
+                <option value="2">Weight Round Robin</option>
+            
+                <option value="3">Statistics</option>
+            
+                <option value="4">Xianboy1</option>
+            
+                <option value="5">Xianboy2</option>
+            </select>
+            <input type="submit" style="display:none">
+        </form>
+    </div>
+    <div>STATISTICS
+        <button>flow Statistics</button>
+        <button>port Statistics</button>
+    </div>
+</body>
+
 </html>
