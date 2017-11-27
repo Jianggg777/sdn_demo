@@ -24,6 +24,7 @@ app.post( '/api/cgService', routes.setVm );
 app.get( '/api/getStatistics', routes.getStatistics ); 
 
 app.listen( 4000, function (){ 
- console.log( 'Express server listening for manage_web request' );
+ console.log( 'Express server listening 4000 for manage_web request' );
 });
+
 

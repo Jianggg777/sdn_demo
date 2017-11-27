@@ -12,9 +12,8 @@ app.use(express.static('public'));
 // Routes
 var routes = require( './routes' );
 app.get( '/', routes.index ); 
-
+app.get( '/api/taiwan/:area', routes.twData ); 
 
 app.listen( 3000, function (){ 
- console.log( 'Express server listening for pm2.5_web request' );
+ console.log( 'Express server listening 3000 for pm2.5_web request' );
 });
-
