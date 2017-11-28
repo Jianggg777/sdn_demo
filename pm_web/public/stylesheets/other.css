@@ -1,13 +1,16 @@
 /*                                    loader                 */
+
 .no-js #loader {
     display: none;
 }
+
 .js #loader {
     display: block;
     position: absolute;
     left: 100px;
     top: 0;
 }
+
 .se-pre-con {
     position: fixed;
     left: 0px;
@@ -22,43 +25,98 @@
 
 
 
+
+
+
+
+
+
 /*                                     web                             */
-body {
-    margin:0;
-    padding:0;
-    background: #000 url(/images/bg4.jpg) center center fixed no-repeat;
-    color:green;
+.serif {
+    font-family: "URW Palladio L", "URW Bookman L", "Century Schoolbook", Georgia, Times, "Times New Roman", "Palatino Linotype", serif;
 }
+
+body {
+    background: url(/images/bg1.jpg);
+    background-repeat: no-repeat;
+    background-position: 40% 30%;
+    background-attachment: fixed;
+}
+
 
 
 .wrapper {
+    /*border: 2px blue solid;*/
     position: absolute;
     text-align: center;
     padding: 10px;
-    width: 50%;
-    top: 25%;
-    right: 25%;
-    border-radius: 25px;
     z-index: 2;
     filter: drop-shadow(5px 5px 10px #666);
-    box-shadow: 4px 4px 12px 4px rgba(0, 0, 0, 0.5);
+    top: 10%;
+    width: 60%;
+    left: 20%;
+    background: rgba(52, 52, 52, 0.2);
+    border-radius: 10px;
 }
 
-img{
+
+img {
     max-width: 20%;
     height: auto;
-}
-/*
-#Image-Maps-Com-image-maps-2017-11-27-015214 {
-    max-width: 100%;
-    height: auto;
+    margin: 8px;
 }
 
-#Image-Maps-Com-image-maps-2017-11-27-115351 {
-    max-width: 100%;
-    height: auto;
+.buttons {
+    text-align: center;
 }
-*/
+
+label {
+    padding: 2px;
+    font-size: 1em;
+    color: white;
+    border-style: double;
+}
+
+#pm {
+    /*border: 2px blue solid;*/
+    display: inline-block;
+    vertical-align: top;
+}
+
+#realtime {
+    /*border: 2px blue solid;*/
+    display: inline-block;
+    vertical-align: top;
+}
+
+#line {
+    border: 0;
+    height: 1px;
+    width: 80%;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+}
+
+
+.font-b {
+    font-family: 'Ranchers', cursive;
+    color: white;
+    text-align: center;
+    font-size: 3em;
+}
+
+.font-m {
+    color: white;
+    text-decoration: underline;
+    font-family: 'Ranchers', cursive;
+    text-align: center;
+    font-size: 1em;
+}
+
+.font-s {
+    color: white;
+}
+
+
 
 
 /*                                   dialogs                             */
@@ -110,19 +168,27 @@ img{
 
 
 
+
+
+
+
+
+
 /*                     ghost button                       */
 
 .ghost-button {
     display: inline-block;
-    width: 150px;
+    width: 100px;
     padding: 8px;
-    color: #fff;
-    border: 1.2px solid #fff;
+    color: white;
+    font-size: 1.2em;
+    border: 2.5px solid #fff;
     border-radius: 10px;
     text-align: center;
     outline: none;
     text-decoration: none;
-    
+    margin: 8px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
 .ghost-button:hover,

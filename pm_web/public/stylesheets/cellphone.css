@@ -40,21 +40,7 @@
     font-family: "URW Palladio L", "URW Bookman L", "Century Schoolbook", Georgia, Times, "Times New Roman", "Palatino Linotype", serif;
 }
 
-.sans-serif {
-    font-family: "Nimbus Sans L", "URW Gothic L", Verdana, Tahoma, Helvetica, "Lucida Grande", Geneva, "DejaVu Sans", "Microsoft Sans Serif", sans-serif;
-}
 
-.monospace {
-    font-family: "Bitstream Vera Sans Mono", "Courier 10 Pitch", "Nimbus Mono L", Monaco, "Courier New", Courier, "OCR A Extended", "DejaVu Sans Mono", "Lucida Console", monospace;
-}
-
-.cursive {
-    font-family: "Domestic Manners", "URW Chancery L", "Brush Script MT", Zapfino, "Apple Chancery", "Bradley Hand ITC", "Monotype Corsiva", "Comic Sans MS", cursive;
-}
-
-.fantasy {
-    font-family: "Marked Fool", Junkyard, Balker, Papyrus, Haettenschweiler, Impact, fantasy;
-}
 
 
 body {
@@ -62,6 +48,7 @@ body {
     background-repeat: no-repeat;
     background-position: center top;
 }
+
 
 .wrapper {
     top: 10px;
@@ -84,9 +71,25 @@ img {
     text-align: center;
 }
 
-label{
-    padding:2px;
+
+#line {
+    border:0; 
+    height:0px; 
+    background-color:black;
+}
+.font-b {
+  font-family: 'Ranchers', cursive;
+  color: black;
+  font-size: 2em;
+}
+.font-m {
+    color: black;
     text-decoration:underline;
+    font-family: 'Ranchers', cursive;
+    font-size: 1em;
+}
+.font-s {
+    color: black;
 }
 
 /*                                   dialogs                             */
