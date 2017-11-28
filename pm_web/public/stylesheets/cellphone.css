@@ -1,8 +1,3 @@
-
-
-
-
-
 /*                                    loader                 */
 
 .no-js #loader {
@@ -30,56 +25,69 @@
 
 
 
+
+
+
+
+
+
+
+
+
 /*                                     web                             */
-/*
-body {
-    background: url(/images/bg4.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-}
-*/
-body {
-    margin:0;
-    padding:0;
-    background: #000 url(/images/bg4.jpg) center center fixed no-repeat;
-    /*-moz-background-size: cover;*/
-    /*background-size: cover;*/
+
+.serif {
+    font-family: "URW Palladio L", "URW Bookman L", "Century Schoolbook", Georgia, Times, "Times New Roman", "Palatino Linotype", serif;
 }
 
-a {
-    color: #00B7FF;
+.sans-serif {
+    font-family: "Nimbus Sans L", "URW Gothic L", Verdana, Tahoma, Helvetica, "Lucida Grande", Geneva, "DejaVu Sans", "Microsoft Sans Serif", sans-serif;
+}
+
+.monospace {
+    font-family: "Bitstream Vera Sans Mono", "Courier 10 Pitch", "Nimbus Mono L", Monaco, "Courier New", Courier, "OCR A Extended", "DejaVu Sans Mono", "Lucida Console", monospace;
+}
+
+.cursive {
+    font-family: "Domestic Manners", "URW Chancery L", "Brush Script MT", Zapfino, "Apple Chancery", "Bradley Hand ITC", "Monotype Corsiva", "Comic Sans MS", cursive;
+}
+
+.fantasy {
+    font-family: "Marked Fool", Junkyard, Balker, Papyrus, Haettenschweiler, Impact, fantasy;
+}
+
+
+body {
+    background: url(/images/bg7.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
 }
 
 .wrapper {
+    top: 10px;
     position: absolute;
-    text-align: center;
     padding: 10px;
-    width: 30%;
-    top: 25%;
-    right: 25%;
+    width: 70%;
+    right: 15%;
     border-radius: 25px;
     z-index: 2;
     filter: drop-shadow(5px 5px 10px #666);
-    box-shadow: 4px 4px 12px 4px rgba(0, 0, 0, 0.5);
+    /*box-shadow: 4px 4px 12px 4px rgba(0, 0, 0, 0.5);*/
 }
 
-img{
-    max-width: 50%;
+img {
+    max-width: 40%;
     height: auto;
+    margin: 8px;
 }
-/*
-#Image-Maps-Com-image-maps-2017-11-27-015214 {
-    max-width: 100%;
-    height: auto;
+.buttons{
+    text-align: center;
 }
 
-#Image-Maps-Com-image-maps-2017-11-27-115351 {
-    max-width: 100%;
-    height: auto;
+label{
+    padding:2px;
+    text-decoration:underline;
 }
-*/
-
 
 /*                                   dialogs                             */
 
@@ -90,6 +98,8 @@ img{
     width: auto;
     max-width: 500px;
     margin: 20px auto;
+    border-radius: 25px;
+
 }
 
 .dialog {
@@ -132,19 +142,30 @@ img{
 
 
 
+
+
+
+
+
+
+
 /*                     ghost button                       */
 
 .ghost-button {
     display: inline-block;
     width: 150px;
     padding: 8px;
-    color: #fff;
-    border: 1.2px solid #fff;
+    border: 1px solid #fff;
     border-radius: 10px;
     text-align: center;
     outline: none;
     text-decoration: none;
-    
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
+    /*text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);*/
+    margin:8px;
+    -webkit-text-fill-color:black;/*文字的填充色*/
+    -webkit-text-stroke: 0.3px white;/*描边的像素，也就是粗细，这里指定是2像素的黑色边框*/
+
 }
 
 .ghost-button:hover,

@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title></title>
-    <!-- Magnific Popup core CSS file -->
-    <link rel="stylesheet" href="/stylesheets/magnific-popup.css" />
+    <title>PM2.5 page</title>
+    <!-- Responsive Web Design-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 600px)" href="/stylesheets/cellphone.css" />
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 600px) and (max-device-width: 1000px)" href="/stylesheets/other.css" />
+    <link rel="stylesheet" type="text/css" media="screen and (min-device-width: 1000px)" href="/stylesheets/desktop.css" />
+    <!-- JQUERY -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-    <!-- Magnific Popup core JS file -->
+    <!-- bootstrap -->
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- dialog (Magnific Popup) -->
+    <link rel="stylesheet" href="/stylesheets/magnific-popup.css" />
     <script src="/scripts/jquery.magnific-popup.js"></script>
-    <!-- RWD map image-->
+    <!-- Responsive Web Design map image-->
     <script src="/scripts/jquery.rwdImageMaps.js"></script>
-    <!-- the web -->
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- web  javascript file -->
     <script src="/scripts/script.js" type="text/javascript"></script>
     <script type="text/javascript">
     $(window).load(function() {
@@ -27,42 +35,50 @@
 <body>
     <div class="se-pre-con"></div>
     <div class="wrapper">
-        <h1>Hidden Dangers in Our Air</h1>
-        <p>There's so much pollution in the air now that if it weren't for our lungs there'd be no place to put it all.</p>
-        <div id="pm">
-            <label>PM2.5</label>
-            <br>
-            <a href="#what_content" class="ghost-button popup-link">What is PM2.5</a>
-            <a href="#how_content" class="ghost-button popup-link">How to reduce</a>
-            <a href="#aqi_content" class="ghost-button popup-link">Air Quality Index</a>
+        <h2 class="serif toleft">Hidden Dangers in Our Air</h2>
+        <p class="serif toleft">There's so much pollution in the air now that if it weren't for our lungs there'd be no place to put it all.</p>
+        <div id="show">
+            <div id="pm">
+                <label>PM2.5</label>
+                <div class="buttons">
+                    <a href="#what_content" class="ghost-button popup-link">What is PM2.5</a>
+                    <a href="#how_content" class="ghost-button popup-link">How to reduce</a>
+                    <a href="#aqi_content" class="ghost-button popup-link">Air Quality Index</a>
+                </div>
+            </div>
+            <div id="realtime">
+                <label>REAL-TIME OBSERVATION</label>
+                <br>
+                <img id="Image-Maps-Com-image-maps-2017-11-27-015214" src="/images/tw4.png" border="0" width="224" height="423" orgWidth="224" orgHeight="423" usemap="#image-maps-2017-11-27-015214" alt="" />
+                <map name="image-maps-2017-11-27-015214" id="ImageMapsCom-image-maps-2017-11-27-015214">
+                    <area shape="rect" coords="222,421,224,423" alt="Image Map" style="outline:none;" title="Image Map" href="http://www.image-maps.com/index.php?aff=mapped_users_0" />
+                    <area title="全台" href="javascript: void(0)" onclick="dynamicData('all',this)" class="tw" shape="poly" coords="2,201,82,69,101,29,156,1,222,28,200,130,98,398,72,420,6,317" style="outline:none;" target="_self" />
+                </map>
+                <img id="Image-Maps-Com-image-maps-2017-11-27-115351" src="/images/tw3.png" border="0" width="252" height="446" orgWidth="252" orgHeight="446" usemap="#image-maps-2017-11-27-115351" alt="" />
+                <map name="image-maps-2017-11-27-115351" id="ImageMapsCom-image-maps-2017-11-27-115351">
+                    <area shape="rect" coords="250,444,252,446" alt="Image Map" style="outline:none;" title="Image Map" href="http://www.image-maps.com/index.php?aff=mapped_users_0" />
+                    <area title="北部" href="javascript: void(0)" onclick="dynamicData('north',this)" shape="poly" coords="224,121,184,117,140,98,113,73,137,22,196,4,248,25" style="outline:none;" target="_self" />
+                    <area title="中部" href="javascript: void(0)" onclick="dynamicData('central',this)" shape="poly" coords="93,76,160,125,144,184,140,218,108,241,72,217,60,188,22,200,24,177" style="outline:none;" target="_self" />
+                    <area title="南部" href="javascript: void(0)" onclick="dynamicData('south',this)" shape="poly" coords="12,209,49,202,76,233,112,268,92,348,77,393,100,428,72,442,29,372,0,297" style="outline:none;" target="_self" />
+                    <area title="東部" href="javascript: void(0)" onclick="dynamicData('east',this)" shape="poly" coords="169,141,208,134,216,161,181,289,116,408,94,365" style="outline:none;" target="_self" />
+                </map>
+            </div>
+            
         </div>
-        <div id="realtime">
-            <label>REAL-TIME OBSERVATION</label>
-            <br>
-            <img id="Image-Maps-Com-image-maps-2017-11-27-015214" src="/images/tw4.png" border="0" width="224" height="423" orgWidth="224" orgHeight="423" usemap="#image-maps-2017-11-27-015214" alt="" />
-            <map name="image-maps-2017-11-27-015214" id="ImageMapsCom-image-maps-2017-11-27-015214">
-                <area shape="rect" coords="222,421,224,423" alt="Image Map" style="outline:none;" title="Image Map" href="http://www.image-maps.com/index.php?aff=mapped_users_0" />
-                <area title="全台" href="javascript: void(0)" onclick="dynamicData('all',this)" class="tw" shape="poly" coords="2,201,82,69,101,29,156,1,222,28,200,130,98,398,72,420,6,317" style="outline:none;" target="_self" />
-            </map>
-            <img id="Image-Maps-Com-image-maps-2017-11-27-115351" src="/images/tw3.png" border="0" width="252" height="446" orgWidth="252" orgHeight="446" usemap="#image-maps-2017-11-27-115351" alt="" />
-            <map name="image-maps-2017-11-27-115351" id="ImageMapsCom-image-maps-2017-11-27-115351">
-                <area shape="rect" coords="250,444,252,446" alt="Image Map" style="outline:none;" title="Image Map" href="http://www.image-maps.com/index.php?aff=mapped_users_0" />
-                <area title="北部" href="javascript: void(0)" onclick="dynamicData('north',this)" shape="poly" coords="224,121,184,117,140,98,113,73,137,22,196,4,248,25" style="outline:none;" target="_self" />
-                <area title="中部" href="javascript: void(0)" onclick="dynamicData('central',this)" shape="poly" coords="93,76,160,125,144,184,140,218,108,241,72,217,60,188,22,200,24,177" style="outline:none;" target="_self" />
-                <area title="南部" href="javascript: void(0)" onclick="dynamicData('south',this)" shape="poly" coords="12,209,49,202,76,233,112,268,92,348,77,393,100,428,72,442,29,372,0,297" style="outline:none;" target="_self" />
-                <area title="東部" href="javascript: void(0)" onclick="dynamicData('east',this)" shape="poly" coords="169,141,208,134,216,161,181,289,116,408,94,365" style="outline:none;" target="_self" />
-            </map>
-            <div id="indialog" style="display:none;">
-                <div id="what_content" class="white-popup mfp-hide dialog">
-                    空氣中分布著許多物質，其形態可分為固態、液態或氣態等等，就一般而言，粒徑小於10微米(μm)的粒子稱之為PM10，而粒徑小於2.5微米(μm)則為PM2.5。 落塵:指粒徑在10微米(μm)以上之粒狀污染物，可被人體纖毛和黏液過濾，較難以通過鼻子和咽喉。 懸浮微粒(PM10) :指粒徑在10微米(μm)以下之粒狀污染物，又稱為「可吸入懸浮粒子」，可以穿透這些屏障達到肺部。 細懸浮微粒(PM2.5) :指粒徑在2.5微米(μm)以下之粒狀污染物，又稱為「細懸浮微粒」，更易吸附有毒害的物質。由於體積更小，PM2.5具有更強的穿透力，可穿透肺部氣泡，直接進入血管中隨著血液循環全身。主要由硫和氮的氧化物轉化而成，這些氣懸膠污染物來自於化石燃料（煤、石油等）和燃燒物質所產生
-                </div>
-                <div id="how_content" class="white-popup mfp-hide dialog">
-                    1.霧霾天氣少開窗，最好不出門或晨練 霧霾天氣不主張早晚開窗通風，最好等月亮出來在開窗通風。霧霾天氣是心血管疾病患者的「危險天」，尤其是有呼吸道疾病和心血管疾病的老人，是因為起霧時氣壓高，空氣中的含氧量有所升高，人們很容易感到胸悶，早晨潮濕寒冷的霧氣還會造成冷刺激，很容易導致食管管痙攣、血壓波動、心臟負荷加重等。同時，霧中的一些病原體會導致頭痛，甚至誘發高血壓、腦溢血等疾病。因此，患有心血管疾病的人，尤其是年老體弱者，不宜在霧天出門，更不宜在霧天晨練，以免發生危險。 2.外出戴專業防塵口罩 3.多喝一些「清肺除塵」飲品 4.少量補充維生素D 冬季霧多、日照少，由於紫外線照射太少，人體內維生素D生成不足，有些人還會產生精神壓抑、情緒低落等現象，必要時可補充一些維生素D。 5.深層清潔 人體表面的皮膚直接與外界空氣接觸，很容易受到霧霾天氣的傷害。尤其是在個、繁華喧囂十面「霾」伏的都市中，除了要隨時應對霧霾危「肌」外，由於建築施工，汽車尾氣，工業燃料燃燒，燃放煙花爆燭等原因造成懸浮顆粒物多，難免會堵塞在毛孔中形成黑頭，造成毛孔阻塞、角質堆積、肌膚起皮等肌膚問題，所以自我保護的首要措施就是深層清潔肌膚表層，清潔毛孔。
-                </div>
-                <div id="aqi_content" class="white-popup mfp-hide dialog">
-                    <p>TSMFOINIONSIFIOSNIF</p>
-                    <img src="/images/AQI.jpg">
-                </div>
+        <div id="indialog" style="display:none;">
+            <div id="what_content" class="white-popup mfp-hide dialog">
+                空氣中分布著許多物質，其形態可分為固態、液態或氣態等等，就一般而言，粒徑小於10微米(μm)的粒子稱之為PM10，而粒徑小於2.5微米(μm)則為PM2.5。 落塵:指粒徑在10微米(μm)以上之粒狀污染物，可被人體纖毛和黏液過濾，較難以通過鼻子和咽喉。 懸浮微粒(PM10) :指粒徑在10微米(μm)以下之粒狀污染物，又稱為「可吸入懸浮粒子」，可以穿透這些屏障達到肺部。 細懸浮微粒(PM2.5) :指粒徑在2.5微米(μm)以下之粒狀污染物，又稱為「細懸浮微粒」，更易吸附有毒害的物質。由於體積更小，PM2.5具有更強的穿透力，可穿透肺部氣泡，直接進入血管中隨著血液循環全身。主要由硫和氮的氧化物轉化而成，這些氣懸膠污染物來自於化石燃料（煤、石油等）和燃燒物質所產生
+            </div>
+            <div id="how_content" class="white-popup mfp-hide dialog">
+                1.霧霾天氣少開窗，最好不出門或晨練 霧霾天氣不主張早晚開窗通風，最好等月亮出來在開窗通風。霧霾天氣是心血管疾病患者的「危險天」，尤其是有呼吸道疾病和心血管疾病的老人，是因為起霧時氣壓高，空氣中的含氧量有所升高，人們很容易感到胸悶，早晨潮濕寒冷的霧氣還會造成冷刺激，很容易導致食管管痙攣、血壓波動、心臟負荷加重等。同時，霧中的一些病原體會導致頭痛，甚至誘發高血壓、腦溢血等疾病。因此，患有心血管疾病的人，尤其是年老體弱者，不宜在霧天出門，更不宜在霧天晨練，以免發生危險。 2.外出戴專業防塵口罩 3.多喝一些「清肺除塵」飲品 4.少量補充維生素D 冬季霧多、日照少，由於紫外線照射太少，人體內維生素D生成不足，有些人還會產生精神壓抑、情緒低落等現象，必要時可補充一些維生素D。 5.深層清潔 人體表面的皮膚直接與外界空氣接觸，很容易受到霧霾天氣的傷害。尤其是在個、繁華喧囂十面「霾」伏的都市中，除了要隨時應對霧霾危「肌」外，由於建築施工，汽車尾氣，工業燃料燃燒，燃放煙花爆燭等原因造成懸浮顆粒物多，難免會堵塞在毛孔中形成黑頭，造成毛孔阻塞、角質堆積、肌膚起皮等肌膚問題，所以自我保護的首要措施就是深層清潔肌膚表層，清潔毛孔。
+            </div>
+            <div id="aqi_content" class="white-popup mfp-hide dialog">
+                <p>TSMFOINIONSIFIOSNIF</p>
+                <img src="/images/AQI.jpg">
+            </div>
+            <a href="#tw_content" id="tw_button" class="ghost-button popup-link"></a>
+            <div id="tw_content" class="white-popup mfp-hide dialog">
+                <p>YPYP</p>
             </div>
         </div>
     </div>
