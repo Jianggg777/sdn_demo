@@ -108,53 +108,39 @@ $(document).ready(function() {
         });
         // statistics
         // vm dialog
-        /*
-        $("#vm_dialog").dialog({
+
+        $("#ovs_dialog").dialog({
             autoOpen: false,
-            show: "blind",
             width: 800,
-            hide: "explode",
-            buttons: {
-                "Ok": function() { // On open, hide the original submit button
-                    //$("#vm_dialog").dialog("close");
-                    $("#vm_setting_form").dialog("open");
-                },
-                "Cancel": function() { $(this).dialog("close"); }
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
             }
         });
-        */
-        $("#vm_dialog").dialog({
-            autoOpen: false,
-            show: "blind",
-            width: 800,
-            hide: "explode",
-            buttons: [{
-                    text: "Cancel",
-                    click: function() {
-                        $(this).dialog("close");
-                    }
-                },
-                {
-                    id: "is_manager_button",
-                    disabled:true,
-                    text: "setting",
-                    click: function() {
-                        $("#vm_setting_form").dialog("open");
-                    }
-                }
-            ]
-        });
+
+
         $("#vm_setting_form").dialog({
             autoOpen: false,
             show: "blind",
             width: 500,
             hide: "explode",
-            buttons: {
-                "Ok": function() { // On open, hide the original submit button
+            buttons: [{
+                id: "is_manager_button",
+                disabled: true,
+                text: "OK",
+                click: function() {
                     $("#vm_setting_form").submit();
-                },
-                "Cancel": function() { $(this).dialog("close"); }
-            }
+                }
+            }, {
+                text: "Cancel",
+                click: function() {
+                    $(this).dialog("close");
+                }
+            }]
         });
     });
 

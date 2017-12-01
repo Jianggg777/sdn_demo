@@ -1,43 +1,4 @@
-/*
-function btnOk() {
-    // 按下確定後的動作
-    alert('你按下 確定');
-}
-
-function btnCancel() {
-    // 按下取消後的動作
-    alert('你按下 取消');
-}
-
-function newFunction() {
-    confirm("jQuery 版 confirm確認框", "標題", btnOk, btnCancel);
-}
-
-function confirm(data, title, func, func2) {
-    $('body').append('<div id="dps" title="' + title + '" style="display:none;">' + data + '</div>');
-
-    $(function() {
-        $("#dps").dialog({
-            height: 250,
-            modal: true,
-            buttons: {
-                '確定': function() {
-                    $('#dps').remove();
-                    func();
-                },
-                '取消': function() {
-                    $(this).dialog("close");
-                    func2();
-                }
-            }
-        });
-    });
-
-}
-*/
-
-////////////////////////////////////////
-
+//var ip_port = "10.32.21.67:8080";
 var ip_port = "192.168.3.20:8080";
 
 
@@ -66,23 +27,37 @@ function draw() {
     };
 
     network = new vis.Network(container, data, options);
+    /*
     // skip element
     network.on("showPopup", function(params) {
         var id = params;
-        console.log("pop " + id);
-        /*
+        //console.log("pop " + id);
+        
         if (params.charAt(0) == 's') {
             var id = params.substring(1);
             network["body"]["nodes"][params]["options"]["title"] = parseFlows(id);
             console.log("id"+id);
         }
-        */
     });
+    */
     //click item
     network.on("click", function(object) {
-        if (object.nodes != "") {
+        /*
+        if (object.nodes!="" && object.nodes[0].charAt(0) != 's') {
             // ask for the device info
             $("#vm_dialog").dialog("open");
+        }
+        */
+        console.log(object.nodes[0]);
+        if (object.nodes != "") {
+            if(object.nodes[0].charAt(0) == 's'){
+                var id = object.nodes[0].substring(1);
+                $("#ovs_dialog").html(parseFlows(id));
+                $("#ovs_dialog").dialog("open");
+            }else{
+                // ask for the device info
+                $("#vm_setting_form").dialog("open");
+            }
         }
         /*
         var output = '';
@@ -90,8 +65,9 @@ function draw() {
             output += property + ': ' + object[property] + '; ';
         }
         console.log("click " + output);
-        */
+        
         console.log("click " + object.nodes);
+        */
     });
 
 }
@@ -205,16 +181,17 @@ function loadSwitches() {
     $.ajax({
         url: "http://" + ip_port + "/wm/core/controller/switches/json",
         success: function(data) {
-
             for (var i = 0; i < data.length; i++) {
                 var id = "s" + data[i]["switchDPID"];
                 var label = "s" + data[i]["switchDPID"];
+
                 nodes.push({
                     id: id,
                     label: label,
                     image: DIR + 'switch.png',
                     shape: 'image',
-                    title: parseFlows(data[i]["switchDPID"])
+                    //title: parseFlows(data[i]["switchDPID"])
+                    title: data[i]["switchDPID"]
                 });
             }
             LoadHosts();
