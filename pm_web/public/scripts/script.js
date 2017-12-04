@@ -24,25 +24,25 @@ function dynamicData(area) {
         //↓天辣辣辣辣這行太神了!!!!傳回值終於可以存惹感動
         async: false,
         success: function(data) {
-            /*
             for (i = 0; i < data.length; i++) {
-                var inner = {
-                    "area": data[i].area, //資管
-                    "message": data[i].message, //女籃
+                var inner = {   
+                    "usrUserName": data[i].usrUserName, 
+                    "stId": data[i].stId, 
+                    "srId": data[i].srId, 
+                    "evTime": data[i].evTime, 
+                    "evValue": data[i].evValue
                 }
                 objects.push(inner);
             }
-            */
             objects = data;
             //console.log(objects);        
         }
     });
     //塞進div
-    //$("#tw_content").append("<p >" + object.area + "：" + object.message+ "</p>");
     var str = "<p>";
     var i;
     for(i=0;i<objects.length;i++){
-        str += objects[i].area + " " + objects[i].message+ "<br>";
+        str += objects[i].usrUserName + " " + objects[i].stId+ " "+objects[i].srId+ " "+objects[i].evTime+ " "+objects[i].evValue+ "<br>";
 
     }
     str += "</p>";
