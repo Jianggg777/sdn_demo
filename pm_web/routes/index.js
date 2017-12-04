@@ -1,12 +1,17 @@
 var sql=require('mssql');
-var io= require('socket.io');
 //config for your database
- var config={
+var config={
     user:'xianboy1234',
     password:'1234',
-    server:'10.32.20.154',   //這邊要注意一下!!
+    server:'10.32.20.154',   
     database:'xianboy'
  };
+//  jmeter ok
+var connection = sql.connect(config, function (err) {
+    if (err)
+        throw err; 
+});
+
   
 
 
@@ -27,26 +32,15 @@ exports.twData = function(req, res) {
     }else if(req.params.area=== "east"){
         num = 10;
     }
-    var objects = [];
 
-
-
+    //  jmeter ok
+    var request = new sql.Request();
+    request.query('SELECT TOP '+num+' * FROM [xianboy].[dbo].[EnvironmentData] ORDER BY [evTime] desc', function (err, result) {
+        if (err) 
+            return next(err);
+        res.json(result.recordset);     
+    }); 
 /*
-io.sockets.on('adminConnect', function (email) {
-    connection = mysql.createConnection(config); // db_config has all details of database
-    connection.connect(); // no problem in connection
-    connection.query('SELECT TOP '+num+' * FROM [xianboy].[dbo].[EnvironmentData]', function (err, results, fields) {
-        if (err) throw err;
-        if (results[0]) {
-            // Some code
-            res.json(recordsets.recordset);
-        } else {
-            console.log("no id");
-        }
-    });
-    connection.end(); // its giving error "Cannot enqueue Query after invoking quit."
-});
-
 
 new sql.ConnectionPool(config).connect().then(pool => {
   return pool.request.query('SELECT TOP '+num+' * FROM [xianboy].[dbo].[EnvironmentData]')
