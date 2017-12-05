@@ -47,6 +47,7 @@ body {
     background: url(/images/bg6.jpg);
     background-repeat: no-repeat;
     background-position: center top;
+    background-size: cover;
 }
 
 

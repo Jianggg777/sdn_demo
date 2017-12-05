@@ -20,26 +20,40 @@ exports.index = function(req, res) {
 };
 exports.twData = function(req, res) {
     var area = req.params.area;
-    var num=0 ; 
-    if(req.params.area=== "all"){    // http://10.105.27.172:3000/api/taiwan/all
-        num = 10000;
-    }else if(req.params.area=== "north"){
-        num = 5000;
-    }else if(req.params.area=== "central"){
-        num = 1000;
-    }else if(req.params.area=== "south"){
-        num = 100;
-    }else if(req.params.area=== "east"){
-        num = 10;
-    }
-
-    //  jmeter ok
     var request = new sql.Request();
-    request.query('SELECT TOP '+num+' * FROM [xianboy].[dbo].[EnvironmentData] ORDER BY [evTime] desc', function (err, result) {
-        if (err) 
-            return next(err);
-        res.json(result.recordset);     
-    }); 
+    var num = 0 ; 
+    if(req.params.area=== "all"){    // http://10.105.27.172:3000/api/taiwan/all
+        console.log("all");
+        num = 10000;
+        request.query('SELECT TOP '+num+' * FROM [xianboy].[dbo].[EnvironmentData] ORDER BY [evTime] desc', function (err, result) {
+            if (err) 
+                return next(err); 
+            var request2 = new sql.Request();
+            request.query('SELECT TOP 1 * FROM [xianboy].[dbo].[EnvironmentData] ORDER BY [evTime] desc', function (err, result2) {
+                if (err) 
+                    return next(err); 
+                res.json(result2.recordset); 
+            });
+        }); 
+    }else{
+        if(req.params.area=== "north"){
+            num = 5000;
+        }else if(req.params.area=== "central"){
+            num = 1000;
+        }else if(req.params.area=== "south"){
+            num = 100;
+        }else if(req.params.area=== "east"){
+            num = 10;
+        }
+        //  jmeter ok
+        request.query('SELECT TOP '+num+' * FROM [xianboy].[dbo].[EnvironmentData] ORDER BY [evTime] desc', function (err, result) {
+            if (err) 
+                return next(err);
+            console.log(result.recordset)
+            res.json(result.recordset);     
+
+        }); 
+    }
 /*
 
 new sql.ConnectionPool(config).connect().then(pool => {
