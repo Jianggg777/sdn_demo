@@ -49,9 +49,7 @@ exports.twData = function(req, res) {
         request.query('SELECT TOP '+num+' * FROM [xianboy].[dbo].[EnvironmentData] ORDER BY [evTime] desc', function (err, result) {
             if (err) 
                 return next(err);
-            console.log(result.recordset)
             res.json(result.recordset);     
-
         }); 
     }
 /*
