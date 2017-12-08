@@ -52,43 +52,8 @@ exports.twData = function(req, res) {
             res.json(result.recordset);     
         }); 
     }
-/*
-
-new sql.ConnectionPool(config).connect().then(pool => {
-  return pool.request.query('SELECT TOP '+num+' * FROM [xianboy].[dbo].[EnvironmentData]')
-  }).then(result => {
-    res.json(recordsets.recordset);
-    //let rows = result.recordset
-    //res.setHeader('Access-Control-Allow-Origin', '*')
-    //res.status(200).json(rows);
-    sql.close();
-  }).catch(err => {
-    //res.status(500).send({ message: "${err}"})
-    console.log(err);
-    sql.close();
-  });
-
-
- 
-    //connect to your database
-    sql.connect(config,function (err) {
-        if(err) 
-            console.log(err);
-     
-        //create Request object
-        var request = new sql.Request();
-        request.query('SELECT TOP '+num+' * FROM [xianboy].[dbo].[EnvironmentData]',function(err,recordsets){
-
-            if(err){
-                console.log(err);
-            }else{           
-                res.json(recordsets.recordset);
-            }
-            sql.close();
-        });
-
-    });
-*/
- 
+};
+exports.movie= function(req, res) {
+    res.render('movie');
 };
 
