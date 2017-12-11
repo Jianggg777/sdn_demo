@@ -1,4 +1,4 @@
-var ip_port = "10.32.21.67:8080";
+var ip_port = "10.32.21.112:8080";
 //var ip_port = "192.168.3.20:8080";
 
 
@@ -32,7 +32,7 @@ function draw() {
     network.on("showPopup", function(params) {
         var id = params;
         //console.log("pop " + id);
-        
+
         if (params.charAt(0) == 's') {
             var id = params.substring(1);
             network["body"]["nodes"][params]["options"]["title"] = parseFlows(id);
@@ -65,7 +65,7 @@ function draw() {
             output += property + ': ' + object[property] + '; ';
         }
         console.log("click " + output);
-        
+
         console.log("click " + object.nodes);
         */
     });

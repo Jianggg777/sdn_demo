@@ -2,139 +2,153 @@
 <html lang="en">
 
 <head>
-    <title>Manage Page</title>
-    <!-- JQUERY -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-    <!-- google font-->
-    <link href="https://fonts.googleapis.com/css?family=Bangers|Ranchers" rel="stylesheet">
-    <!-- topo Custom Fonts -->
-    <!-- Bootstrap Core CSS -->
-    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-    <!-- DataTables CSS -->
-    <link href="/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
-    <!-- DataTables Responsive CSS -->
-    <link href="/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
-    <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="/bower_components/visjs/vis.css" rel="stylesheet" />
-    <!--WEB-->
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="/scripts/script.js" type="text/javascript"></script>
-    <script type="text/javascript">
+  <title>Manage Page</title>
+  <!-- JQUERY -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <!-- google font-->
+  <link href="https://fonts.googleapis.com/css?family=Bangers|Ranchers" rel="stylesheet">
+  <!-- topo Custom Fonts -->
+  <!-- Bootstrap Core CSS -->
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- MetisMenu CSS -->
+  <link href="/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+  <!-- DataTables CSS -->
+  <link href="/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+  <!-- DataTables Responsive CSS -->
+  <link href="/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+  <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="/bower_components/visjs/vis.css" rel="stylesheet" />
+  <!--WEB-->
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="/scripts/script.js" type="text/javascript"></script>
+  <script type="text/javascript">
     $(window).load(function() {
-        setTimeout(animation, 500) // 0.5秒後call animation
-        var REMOTE_DATA = "<%= JSON.stringify(isManager) %>";
-        console.log("HI", REMOTE_DATA);
-        if (REMOTE_DATA == "true") {
-            $('.myButton').attr('disabled', false);
-            $('.logButton').attr('disabled', true);
-            $('#is_manager_button').attr('disabled', false);
-            console.log("manage");
-        }else{
-            //$('#is_manager_button').button('disabled');
-            console.log("not manage");
-        }
+      setTimeout(animation, 500) // 0.5秒後call animation
+      var REMOTE_DATA = "<%= JSON.stringify(isManager) %>";
+      console.log("HI", REMOTE_DATA);
+      if (REMOTE_DATA == "true") {
+        $('.myButton').attr('disabled', false);
+        $('.logButton').attr('disabled', true);
+        $('#is_manager_button').attr('disabled', false);
+        console.log("manage");
+      } else {
+        //$('#is_manager_button').button('disabled');
+        console.log("not manage");
+      }
     });
+
     function animation() {
-        $(".se-pre-con").fadeOut("slow");
+      $(".se-pre-con").fadeOut("slow");
     }
-    </script>
+  </script>
 </head>
 
 <body>
-    <div class="se-pre-con"></div>
-    <div class="wrapper">
-        <h1>第6組</h1>
-        <p>叢集式系統的負載平衡演算法 - 以SDN為概念實作</p>
-        <div id="show">
-            <div id="left">
-                <h3>TOPOLOGY</h3>
-                <div id="mynetwork" class="small_wrapper"></div>
-            </div>
-            <div id="right">
-                <h3>NETWORK SETTING</h3>
-                <div class="small_wrapper">
-                    <button id="opener_login" class="logButton">login</button>
-                    <button id="logout" class="myButton" disabled>logout</button>
-                    <br>
-                    <button id="opener_addService" class="myButton" disabled>add Service</button>
-                    <button id="opener_rmService" class="myButton" disabled>remove Service</button>
-                    <br>
-                    <button id="opener_addvm" class="myButton" disabled>add VM in pool</button>
-                    <button id="opener_rmvm" class="myButton" disabled>remove VM in pool</button>
-                    <br>
-                    <button id="opener_cgMethod" class="myButton" disabled>change load balance method</button>
-                </div>
-                <h3>STATISTICS</h3>
-                <div class="small_wrapper">
-                    <button id="opener_flowstat" class="myButton">flow Statistics</button>
-                    <button id="opener_portstat" class="myButton">port Statistics</button>
-                </div>
-            </div>
+  <!--<div class="se-pre-con"></div> -->
+  <nav class="navbar navbar-default">
+    <a class="navbar-brand" href="#">第6組：基於OpenFlow的伺服器叢集與動態負載平衡的設計與實作</a>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h3>自製網管應用簡介</h3>
+        <p class="lead">1.畫面左方為整個SDN網路的拓墣，並且能針對某個設備封鎖它能上的網站(e.g. PTT,FB,Youtube)。</p>
+        <p class="lead">2.畫面右方後面自己打
+      </div>
+    </div>
+    <div class="row">
+      <!-- <div id="show"> -->
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-10">
+            <h3>TOPOLOGY</h3>
+            <div id="mynetwork"></div>
+          </div>
         </div>
-        <div id="indialog" style="display:none;">
-            <form id="dialog_login" title="login" action="/login" method="post">
-                <label>account</label>
-                <input type="text" name="acc">
-                <br>
-                <label>password</label>
-                <input type="password" name="pass">
-                <input type="submit" type="submit" style="display:none">
-            </form>
-            <form id="dialog_logout"  action="/logout" method="get">
-                <input type="submit" type="submit" style="display:none">
-            </form>
-            <form id="dialog_addService"  title="add Service" action="/api/addService" method="post">
-                <label>service id</label>
-                <input type="text" name="sid">
-                <br>
-                <label>protocol</label>
-                <select name='protocol'>
+      </div>
+
+      <div class="col-sm-6">
+        <h3>NETWORK SETTING</h3>
+        <div class="small_wrapper">
+          <button id="opener_login" class="logButton">login</button>
+          <button id="logout" class="myButton" disabled>logout</button>
+          <br>
+          <button id="opener_addService" class="myButton" disabled>add Service</button>
+          <button id="opener_rmService" class="myButton" disabled>remove Service</button>
+          <br>
+          <button id="opener_addvm" class="myButton" disabled>add VM in pool</button>
+          <button id="opener_rmvm" class="myButton" disabled>remove VM in pool</button>
+          <br>
+          <button id="opener_cgMethod" class="myButton" disabled>change load balance method</button>
+        </div>
+        <h3>STATISTICS</h3>
+        <div class="small_wrapper">
+          <button id="opener_flowstat" class="myButton">flow Statistics</button>
+          <button id="opener_portstat" class="myButton">port Statistics</button>
+        </div>
+      </div>
+      <div id="indialog" style="display:none;"></div>
+      <form id="dialog_login" title="login" action="/login" method="post">
+        <label>account</label>
+        <input type="text" name="acc">
+        <br>
+        <label>password</label>
+        <input type="password" name="pass">
+        <input type="submit" type="submit" style="display:none">
+      </form>
+      <form id="dialog_logout" action="/logout" method="get">
+        <input type="submit" type="submit" style="display:none">
+      </form>
+      <form id="dialog_addService" title="add Service" action="/api/addService" method="post">
+        <label>service id</label>
+        <input type="text" name="sid">
+        <br>
+        <label>protocol</label>
+        <select name='protocol'>
                     <option value="icmp">ICMP</option>
                     <option value="tcp">TCP</option>
                     <option value="udp">UDP</option>
                 </select>
-                <br>
-                <label>vip</label>
-                <input type="text" name="vip">
-                <br>
-                <label>port</label>
-                <input type="text" name="port">
-                <input type="submit" style="display:none">
-            </form>
-            <form id="dialog_rmService"  title="remove Service" action="/api/rmService" method="post">
-                <label>service id</label>
-                <input type="text" name="sid">
-                <br>
-                <input type="submit" style="display:none">
-            </form>
-            <form id="dialog_addvm"  title="add VM in pool" action="/api/addVm" method="post">
-                <label>service id</label>
-                <input type="text" name="sid">
-                <br>
-                <label>vm id</label>
-                <input type="text" name="mid">
-                <br>
-                <label>vm ip</label>
-                <input type="text" name="mip">
-                <br>
-                <label>switch's DPID</label>
-                <input type="text" name="dpid">
-                <br>
-                <input type="submit" style="display:none">
-            </form>
-            <form id="dialog_rmvm"  title="remove VM in pool" action="/api/rmVm" method="post">
-                <label>IP</label>
-                <input type="text" name="ip">
-                <br>
-                <input type="submit" style="display:none">
-            </form>
-            <form id="dialog_cgMethod"  title="change method" action="/api/cgMethod" method="post">
-                <label>method</label>
-                <select name='lbmethod'>
+        <br>
+        <label>vip</label>
+        <input type="text" name="vip">
+        <br>
+        <label>port</label>
+        <input type="text" name="port">
+        <input type="submit" style="display:none">
+      </form>
+      <form id="dialog_rmService" title="remove Service" action="/api/rmService" method="post">
+        <label>service id</label>
+        <input type="text" name="sid">
+        <br>
+        <input type="submit" style="display:none">
+      </form>
+      <form id="dialog_addvm" title="add VM in pool" action="/api/addVm" method="post">
+        <label>service id</label>
+        <input type="text" name="sid">
+        <br>
+        <label>vm id</label>
+        <input type="text" name="mid">
+        <br>
+        <label>vm ip</label>
+        <input type="text" name="mip">
+        <br>
+        <label>switch's DPID</label>
+        <input type="text" name="dpid">
+        <br>
+        <input type="submit" style="display:none">
+      </form>
+      <form id="dialog_rmvm" title="remove VM in pool" action="/api/rmVm" method="post">
+        <label>IP</label>
+        <input type="text" name="ip">
+        <br>
+        <input type="submit" style="display:none">
+      </form>
+      <form id="dialog_cgMethod" title="change method" action="/api/cgMethod" method="post">
+        <label>method</label>
+        <select name='lbmethod'>
                     <option value="0">Random</option>
                     <option value="1">Round Robin</option>
                     <option value="2">Weight Round Robin</option>
@@ -142,34 +156,42 @@
                     <option value="4">Xianboy1</option>
                     <option value="5">Xianboy2</option>
                 </select>
-                <br>
-                <input type="submit" style="display:none">
-            </form>
-            <div id="ovs_dialog"></div>
-            <form id="vm_setting_form" title="set disable ip of vm" action="/api/disableIP" method="post">
-                <label>disable ip</label>
-                <input type="checkbox" name="vehicle" value="YOUTUBE">YOUTUBE
-                <input type="checkbox" name="vehicle" value="FB" checked="checked">FB
-                <input type="checkbox" name="vehicle" value="LOL" >LOL
-                <input type="checkbox" name="vehicle" value="PTT" >PTT
-                <br>
-                others:<textarea name="ips"></textarea>
-                <br>
-                <input type="submit" style="display:none">
-            </form>
-        </div>
+        <br>
+        <input type="submit" style="display:none">
+      </form>
+      <div id="ovs_dialog"></div>
+      <form id="vm_setting_form" title="set disable ip of a device" action="/api/disableIP" method="post">
+        <label>disable ip</label>
+        <input type="checkbox" name="vehicle" value="YOUTUBE">YOUTUBE
+        <input type="checkbox" name="vehicle" value="FB" checked="checked">FB
+        <input type="checkbox" name="vehicle" value="LOL">LOL
+        <input type="checkbox" name="vehicle" value="PTT">PTT
+        <br> others:
+        <textarea name="ips"></textarea>
+        <br>
+        <input type="submit" style="display:none">
+      </form>
     </div>
-    <!--  draw network topo -->
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-    <!-- DataTables JavaScript -->
-    <script src="/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script src="/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
-    <script src="/bower_components/visjs/vis.js"></script>
-    <script src="/bower_components/visjs/googleAnalytics.js"></script>
-    <script type="text/javascript" src="/scripts/topo.js"></script>
+  </div>
+  <!--  draw network topo -->
+  <!-- Bootstrap Core JavaScript -->
+  <footer class="container-fluid text-center bg-lightgray">
+    <div class="copyrights" style="margin-top:25px;">
+      <p>埔里鎮 © 2017, All Rights Reserved
+        <br>
+        <span>Web Design By: 姜青儀</span></p>
+    </div>
+  </footer>
+  </div>
 </body>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+<!-- DataTables JavaScript -->
+<script src="/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+<script src="/bower_components/visjs/vis.js"></script>
+<script src="/bower_components/visjs/googleAnalytics.js"></script>
+<script type="text/javascript" src="/scripts/topo.js"></script>
 
 </html>
