@@ -125,6 +125,7 @@ exports.setVm = function(req, res) {
         action = url.parse(req.url).pathname;
         if (action === "/api/addFlow") {
             // call REST API
+            // curl -X POST -d '{"src-ip":"10.0.0.1/32","dst-ip":"10.0.0.2/32","action":"deny"}' http://<controller_ip>:8080/wm/acl/rules/json
         } else if (action === "/api/rmFlow") {
             // call REST API
         } else if (action === "/api/cgService") {

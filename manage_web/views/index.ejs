@@ -54,8 +54,8 @@
     <div class="row">
       <div class="page-header">
         <h3>自製網管應用簡介</h3>
-        <p class="lead">1.畫面左方為整個SDN網路的拓墣，並且能針對某個設備封鎖它能上的網站(e.g. PTT,FB,Youtube)。</p>
-        <p class="lead">2.畫面右方後面自己打
+        <p class="lead " >1.畫面左方為整個SDN網路的拓樸，並且能針對某個設備封鎖它能上的網站(e.g. PTT,FB,Youtube)及觀測Flow Table。</p>
+        <p class="lead">2.畫面右方為叢集式系統的功能，可新增刪除服務、新增刪除Server Pool的Member。</p>
       </div>
     </div>
     <div class="row">
@@ -81,7 +81,9 @@
           <button id="opener_addvm" class="myButton" disabled>add VM in pool</button>
           <button id="opener_rmvm" class="myButton" disabled>remove VM in pool</button>
           <br>
+          <!--
           <button id="opener_cgMethod" class="myButton" disabled>change load balance method</button>
+      -->
         </div>
         <h3>STATISTICS</h3>
         <div class="small_wrapper">
@@ -146,6 +148,7 @@
         <br>
         <input type="submit" style="display:none">
       </form>
+      <!--
       <form id="dialog_cgMethod" title="change method" action="/api/cgMethod" method="post">
         <label>method</label>
         <select name='lbmethod'>
@@ -159,6 +162,7 @@
         <br>
         <input type="submit" style="display:none">
       </form>
+  -->
       <div id="ovs_dialog"></div>
       <form id="vm_setting_form" title="set disable ip of a device" action="/api/disableIP" method="post">
         <label>disable ip</label>
@@ -179,7 +183,7 @@
     <div class="copyrights" style="margin-top:25px;">
       <p>埔里鎮 © 2017, All Rights Reserved
         <br>
-        <span>Web Design By: 姜青儀</span></p>
+        <span>Web Design By: 姜青儀、劉憲一</span></p>
     </div>
   </footer>
   </div>
