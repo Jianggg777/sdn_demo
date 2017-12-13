@@ -26,14 +26,11 @@ var routes = require( './routes' );
 app.get( '/', routes.index ); 
 app.post('/login',routes.login);
 app.get('/logout',routes.index);
-app.post( '/api/addVm', routes.setNetwork );   // ㄅ確定要ㄅ要
-app.post( '/api/rmVm', routes.setNetwork );  // ㄅ確定要ㄅ要
+app.post( '/api/addVm', routes.setNetwork );  
+app.post( '/api/rmVm', routes.setNetwork );  
 app.post( '/api/addService', routes.setNetwork ); 
-app.post( '/api/rmService', routes.setNetwork ); 
-app.post( '/api/cgMethod', routes.setNetwork ); 
-app.post( '/api/addFlow', routes.setVm ); 
-app.post( '/api/rmFlow', routes.setVm ); 
-app.post( '/api/cgService', routes.setVm ); 
+app.post( '/api/rmService', routes.setNetwork );  
+app.post( '/api/setACL', routes.setNetwork ); 
 app.get( '/api/getStatistics', routes.getStatistics ); 
 
 app.listen( 4000, function (){ 

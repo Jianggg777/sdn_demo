@@ -81,14 +81,7 @@
           <button id="opener_addvm" class="myButton" disabled>add VM in pool</button>
           <button id="opener_rmvm" class="myButton" disabled>remove VM in pool</button>
           <br>
-          <!--
-          <button id="opener_cgMethod" class="myButton" disabled>change load balance method</button>
-      -->
-        </div>
-        <h3>STATISTICS</h3>
-        <div class="small_wrapper">
-          <button id="opener_flowstat" class="myButton">flow Statistics</button>
-          <button id="opener_portstat" class="myButton">port Statistics</button>
+          <button id="opener_setacl" class="myButton" disabled>set acl rule</button>
         </div>
       </div>
       <div id="indialog" style="display:none;"></div>
@@ -148,33 +141,16 @@
         <br>
         <input type="submit" style="display:none">
       </form>
-      <!--
-      <form id="dialog_cgMethod" title="change method" action="/api/cgMethod" method="post">
-        <label>method</label>
-        <select name='lbmethod'>
-                    <option value="0">Random</option>
-                    <option value="1">Round Robin</option>
-                    <option value="2">Weight Round Robin</option>
-                    <option value="3">Statistics</option>
-                    <option value="4">Xianboy1</option>
-                    <option value="5">Xianboy2</option>
-                </select>
+      <form id="dialog_setacl" title="set acl rule" action="/api/setACL" method="post">
+        <label>source IP</label>
+        <input type="text" name="src_ip">
+        <br>
+        <label>destination IP</label>
+        <input type="text" name="dst_ip">
         <br>
         <input type="submit" style="display:none">
       </form>
-  -->
       <div id="ovs_dialog"></div>
-      <form id="vm_setting_form" title="set disable ip of a device" action="/api/disableIP" method="post">
-        <label>disable ip</label>
-        <input type="checkbox" name="vehicle" value="YOUTUBE">YOUTUBE
-        <input type="checkbox" name="vehicle" value="FB" checked="checked">FB
-        <input type="checkbox" name="vehicle" value="LOL">LOL
-        <input type="checkbox" name="vehicle" value="PTT">PTT
-        <br> others:
-        <textarea name="ips"></textarea>
-        <br>
-        <input type="submit" style="display:none">
-      </form>
     </div>
   </div>
   <!--  draw network topo -->
@@ -183,11 +159,7 @@
     <div class="copyrights" style="margin-top:25px;">
       <p>埔里鎮 © 2017, All Rights Reserved
         <br>
-<<<<<<< HEAD
         <span>Web Design By: 姜青儀、劉憲一</span></p>
-=======
-        <span>Web Design By: 姜青儀、劉憲ㄧ</span></p>
->>>>>>> e056224023393e40edef310d77ecd10b299bedf8
     </div>
   </footer>
   </div>

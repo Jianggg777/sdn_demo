@@ -22,22 +22,6 @@ exports.twData = function(req, res) {
     var area = req.params.area;
     var request = new sql.Request();
     var num = 0 ; 
-    /*
-    if(req.params.area=== "all"){    // http://10.105.27.172:3000/api/taiwan/all
-        console.log("all");
-        num = 10000;
-        request.query('SELECT TOP '+num+' * FROM [xianboy].[dbo].[EnvironmentData] ORDER BY [evTime] desc', function (err, result) {
-            if (err) 
-                return next(err); 
-            var request2 = new sql.Request();
-            request.query('SELECT TOP 1 * FROM [xianboy].[dbo].[EnvironmentData] ORDER BY [evTime] desc', function (err, result2) {
-                if (err) 
-                    return next(err); 
-                res.json(result2.recordset); 
-            });
-        }); 
-    }else{
-        */
         if(req.params.area=== "north"){
             num = 500;
         }else if(req.params.area=== "all"){

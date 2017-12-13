@@ -54,9 +54,6 @@ function draw() {
                 var id = object.nodes[0].substring(1);
                 $("#ovs_dialog").html(parseFlows(id));
                 $("#ovs_dialog").dialog("open");
-            }else{
-                // ask for the device info
-                $("#vm_setting_form").dialog("open");
             }
         }
         /*
@@ -164,13 +161,20 @@ function parseFlows(id) {
                 flowString += "<br>&nbsp;&nbsp;&nbsp;Packet count: " + JSON.stringify(flowobject["flows"][i]["packet_count"]);
                 flowString += "<br>&nbsp;&nbsp;&nbsp;Matches: " + JSON.stringify(flowobject["flows"][i]["match"]);
                 if (flowobject["flows"][i]["version"] == "OF_13") {
-                    flowString += "<br>&nbsp;&nbsp;&nbsp;Actions: " + JSON.stringify(flowobject["flows"][i]["instructions"]["instruction_apply_actions"]["actions"]);
+                    if(flowobject["flows"][i]["instructions"]["none"]=="drop"){
+                        flowString += "<br>&nbsp;&nbsp;&nbsp;Actions: drop";
+
+                    }else{
+                        flowString += "<br>&nbsp;&nbsp;&nbsp;Actions: " + JSON.stringify(flowobject["flows"][i]["instructions"]["instruction_apply_actions"]["actions"]);
+                    }
                 }
                 if (flowobject["flows"][i]["version"] == "OF_10") {
                     flowString += "<br>&nbsp;&nbsp;&nbsp;Actions: " + JSON.stringify(flowobject["flows"][i]["actions"]["actions"]);
                 }
                 flowString += "<br>";
+
             }
+                
         }
     });
     return flowString;

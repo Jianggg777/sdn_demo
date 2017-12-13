@@ -89,26 +89,24 @@ $(document).ready(function() {
             $("#dialog_rmService").dialog("open");
             return false;
         });
-        //change Load balancer method
-        $("#dialog_cgMethod").dialog({
+        // set acl
+        $("#dialog_setacl").dialog({
             autoOpen: false,
             show: "blind",
             width: 500,
             hide: "explode",
             buttons: {
                 "Ok": function() { // On open, hide the original submit button
-                    $("#dialog_cgMethod").submit()
+                    $("#dialog_setacl").submit()
                 },
                 "Cancel": function() { $(this).dialog("close"); }
             }
         });
-        $("#opener_cgMethod").click(function() {
-            $("#dialog_cgMethod").dialog("open");
+        $("#opener_setacl").click(function() {
+            $("#dialog_setacl").dialog("open");
             return false;
         });
-        // statistics
-        // vm dialog
-
+        // ovs dialog
         $("#ovs_dialog").dialog({
             autoOpen: false,
             width: 800,
@@ -120,27 +118,6 @@ $(document).ready(function() {
                 effect: "explode",
                 duration: 1000
             }
-        });
-
-
-        $("#vm_setting_form").dialog({
-            autoOpen: false,
-            show: "blind",
-            width: 500,
-            hide: "explode",
-            buttons: [{
-                id: "is_manager_button",
-                disabled: true,
-                text: "OK",
-                click: function() {
-                    $("#vm_setting_form").submit();
-                }
-            }, {
-                text: "Cancel",
-                click: function() {
-                    $(this).dialog("close");
-                }
-            }]
         });
     });
 

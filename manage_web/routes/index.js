@@ -59,7 +59,7 @@ exports.setNetwork = function(req, res) {
             }
             var str = JSON.stringify(jsData);   
             request({
-                uri: "http://10.32.21.67:8080/quantum/v1.0/vips/",
+                uri: "http://10.32.21.112:8080/quantum/v1.0/vips/",
                 method: "POST",
                 form: str
             }, function(error, response, body) {
@@ -79,7 +79,7 @@ exports.setNetwork = function(req, res) {
             }
             var str = JSON.stringify(jsData);   
             request({
-                uri: "http://10.32.21.67:8080/quantum/v1.0/vips/",
+                uri: "http://10.32.21.112:8080/quantum/v1.0/vips/",
                 method: "POST",
                 form: str
             }, function(error, response, body) {
@@ -93,6 +93,15 @@ exports.setNetwork = function(req, res) {
                 protocol: req.body.protocol,
                 vip_id: req.body.sid
             }
+            str = JSON.stringify(jsData);   
+            request({
+                uri: "http://10.32.21.112:8080/quantum/v1.0/pools/",
+                method: "POST",
+                form: str
+            }, function(error, response, body) {
+                console.log(body);
+                console.log("add pool");
+            });
         } else if (action === "/api/rmService") {
             /*
             // curl -X DELETE http://10.32.21.67:8080/quantum/v10/vips/8
@@ -105,31 +114,23 @@ exports.setNetwork = function(req, res) {
                 console.log("remove service");
             });
             */
-        } else if (action === "/api/cgMethod") {
+        } else if (action === "/api/setACL") {
             // call REST API
-            console.log("change method");
-        }
-        res.render('index', {
-            isManager: true
-        });
-    } else {
-        res.render('index', {
-            isManager: false
-        });
-    }
-};
-
-exports.setVm = function(req, res) {
-    // is manager
-    if (req.session.user) {
-        action = url.parse(req.url).pathname;
-        if (action === "/api/addFlow") {
-            // call REST API
-            // curl -X POST -d '{"src-ip":"10.0.0.1/32","dst-ip":"10.0.0.2/32","action":"deny"}' http://<controller_ip>:8080/wm/acl/rules/json
-        } else if (action === "/api/rmFlow") {
-            // call REST API
-        } else if (action === "/api/cgService") {
-            // call REST API
+            //curl -X POST -d '{"src-ip":"10.0.0.1/32","dst-ip":"10.0.0.2/32","action":"deny"}' http://<controller_ip>:8080/wm/acl/rules/json
+            var jsData = {
+                "src-ip": req.body.src_ip+"/32",    // unique
+                "dst-ip":req.body.dst_ip+"/32",
+                "action": "deny"
+            }
+            var str = JSON.stringify(jsData);   
+            request({
+                uri: "http://10.32.21.112:8080/wm/acl/rules/json",
+                method: "POST",
+                form: str
+            }, function(error, response, body) {
+                console.log(body);
+                console.log("add acl rule");
+            });
         }
         res.render('index', {
             isManager: true
